@@ -46,11 +46,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          run: |
-            echo ${{ secrets.DOCKERHUB_USERNAME }}/testcicd:latest
-            echo ${{env.LASTEST_TAG}}
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/testcicd:latest
-            ${{env.LASTEST_TAG}}
           build-args: |
             ${{steps.version_step.outputs.version}}
